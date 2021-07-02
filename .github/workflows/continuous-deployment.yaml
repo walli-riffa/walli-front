@@ -23,5 +23,5 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.FRONT_NAME_HEROKU}}
-          heroku_email: ${{secrets.EMAIL_NZESPORTES}}
+          heroku_email: ${{secrets.EMAIL_HEROKU}}
           delay: 5
