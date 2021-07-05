@@ -6,6 +6,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./lightbox.component.scss']
 })
 export class LightboxComponent {
-@Output() Click = new EventEmitter<any>();
+@Output() click = new EventEmitter<any>();
 constructor() {}
+closeButton(ev: any): void {
+  this.click.emit(ev);
+}
 }
