@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  WALLI_API: 'undefined'
+    production: true,
+    WALLI_API: 'undefined'
 };
