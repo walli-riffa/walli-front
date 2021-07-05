@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { toUnicode } from 'punycode';
+import {Component, OnInit} from '@angular/core';
+import {toUnicode} from 'punycode';
+import {NumberService} from '../../shared/services/number.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-buttom-legend',
@@ -11,10 +13,21 @@ export class ButtomLegendComponent implements OnInit {
   listItem = [];
   modal: boolean;
   numbers = [];
-  constructor() { }
+
+  constructor(
+    private numberService: NumberService
+  ) {
+  }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 600 ; i++) {
+    this.numberService.getAll()
+      .pipe(take(1))
+      .subscribe(r => {
+        console.log(r);
+      }, error => {
+        console.log(error);
+      });
+    for (let i = 1; i <= 600; i++) {
       this.numbers.push(i);
     }
   }
@@ -24,7 +37,7 @@ export class ButtomLegendComponent implements OnInit {
     this.listItem.push({
       value: el
     });
-    console.log( this.listItem);
+    console.log(this.listItem);
     this.popUpOn();
   }
 

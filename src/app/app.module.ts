@@ -10,6 +10,9 @@ import { BannerComponent } from './core/banner/banner.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ButtomLegendComponent } from './core/buttom-legend/buttom-legend.component';
 import { LightboxComponent } from './shared/lightbox/lightbox.component';
+import {LoadingScreenComponent} from './shared/components/loading-screen/loading-screen.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {Interceptor} from './shared/guards/interceptor';
 
 
 @NgModule({
@@ -20,14 +23,22 @@ import { LightboxComponent } from './shared/lightbox/lightbox.component';
     MainComponent,
     BannerComponent,
     ButtomLegendComponent,
-    LightboxComponent
+    LightboxComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

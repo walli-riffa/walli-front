@@ -23,8 +23,11 @@
     "angular-responsive-carousel": "^2.1.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.2",
+    "crypto-js": "^4.0.0",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
