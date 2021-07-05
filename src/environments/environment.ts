@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   WALLI_API: 'http://localhost:8080/',
-  TOKEN_HASH_KEY: 'TOKEN_HASH_KEY',
+  TOKEN_HASH_KEY: 'TOKEN_HASH_KEY_',
   USER_HASH_KEY: 'USER_HASH_KEY'
 };
 
