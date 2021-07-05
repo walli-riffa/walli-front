@@ -1,20 +1,14 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-lightbox',
   templateUrl: './lightbox.component.html',
   styleUrls: ['./lightbox.component.scss']
 })
-export class LightboxComponent implements OnInit {
-
-  constructor() { }
-  
-  ngOnInit() {
-    
+export class LightboxComponent {
+// @Output() click = new EventEmitter<any>();
+  constructor() {}
+  closeButton(ev: any): void {
+    console.log(ev);
   }
-
-  @Output() onClick = new EventEmitter<any>();
-
-
-  
 }

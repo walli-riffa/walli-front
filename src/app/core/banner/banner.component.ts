@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
   images = [
     {path: '/assets/family.jpg'},
     {path: '/assets/family.jpg'},
-]
+];
 
   ngOnInit(): void {
   }
