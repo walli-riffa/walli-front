@@ -9,6 +9,11 @@ export class BannerComponent implements OnInit {
 
   constructor() { }
 
+  images = [
+    {path: '/assets/family.jpg'},
+    {path: '/assets/family.jpg'},
+]
+
   ngOnInit(): void {
   }
 }
