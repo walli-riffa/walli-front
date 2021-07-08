@@ -1,0 +1,57 @@
+<div class="container-fluid w-100">
+
+  <div class="d-flex justify-content-between m-3">
+    <div>
+      <h3>Clientes</h3>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" routerLink="novo-cliente"  > + Novo cliente</button>
+    </div>
+
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-lg-12 col-sm-12 mb-3 mb-lg-0">
+        <label for="name">Pesquisa</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="name" placeholder="João henrique"
+                 aria-label="Camiseta Leblon James"
+                 aria-describedby="basic-addon2" #search>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning mr-3 ml-3" role="alert" *ngIf="customres.length === 0 && !hasError">
+    Não encontramos nenhum cliente.
+  </div>
+  <div class="alert alert-danger mr-3 ml-3" role="alert" *ngIf="hasError">
+    Não foi possível carregar algumas informações. Por favor,
+    <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
+  </div>
+  <div class="card mb-3 mr-3 ml-3">
+    <div class="table-responsive">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 60%">Nome</th>
+          <th scope="col" style="width: 20%">ver numeros</th>
+          <th scope="col" style="width: 20%">editar</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row" class="row-table" *ngFor="let b of [0,1,2,3,4]" routerLink="marca/">
+          <td>andre freitas {{b}}</td>
+          <td><i class="fas fa-user-cog text-secondary"></i></td>
+          <td><i class="fas fa-edit text-primary"></i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
