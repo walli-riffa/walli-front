@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a routerLink="/clientes">Clientes</a></li>
-            <li class="breadcrumb-item active" aria-current="page"> {{brand?.id ? 'Editar' : 'Novo Cliente' }}</li>
+            <li class="breadcrumb-item active" aria-current="page"> {{customer?.id ? 'Editar' : 'Novo Cliente' }}</li>
           </ol>
         </nav>
       </div>
@@ -16,6 +16,7 @@
         <button
           type="button"
           class="btn btn-primary w-100"
+          (click)="save()"
           [disabled]="formBrand.invalid">Salvar
         </button>
       </div>
@@ -27,11 +28,11 @@
       <div class="col-12 mb-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Informações da Marca</h5>
+            <h5 class="card-title">Informações do Cliente</h5>
             <hr>
             <div class="form-row">
               <div class="form-group col-12 mb-3">
-                <label for="categorieName">Nome da Marca</label>
+                <label for="categorieName">Nome</label>
                 <input type="text" class="form-control" id="categorieName" formControlName="name" placeholder="ex: Adidas"
                        [ngClass]="cssError(formBrand.get('name'))">
                 <div id="field-name" class="invalid-feedback">
@@ -41,7 +42,7 @@
             </div>
             <div class="form-row">
               <div class="form-group col-12 mb-3">
-                <label for="categorieName">Nome da Marca</label>
+                <label for="categorieName"> Email</label>
                 <input type="text" class="form-control" id="email" formControlName="email" placeholder="usuario@gmail.com"
                        [ngClass]="cssError(formBrand.get('email'))">
                 <div id="field-email" class="invalid-feedback">
@@ -51,7 +52,7 @@
             </div>
             <div class="form-row">
               <div class="form-group col-12 mb-3">
-                <label for="categorieName">Nome da Marca</label>
+                <label for="categorieName">Telefone</label>
                 <input type="text" class="form-control" id="phone" formControlName="phone"
                        [ngClass]="cssError(formBrand.get('phone'))">
                 <div id="field-phone" class="invalid-feedback">
