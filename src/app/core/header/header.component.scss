@@ -5,7 +5,7 @@
     background: $blue_dark;
     padding-bottom: 0;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 1;
     width: 100%;
@@ -14,6 +14,9 @@
     }
     .logo {
         margin-bottom: -3px;
+    }
+    .login {
+        justify-content: flex-end!important;
     }
     .allTo {
         display: flex;
@@ -26,65 +29,45 @@
             text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
             font-weight: bold;
         }
-    }
-}
-
-.slideshow-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: absolute;
-    bottom: 35%;
-    // padding: 30px;
-    width: 100%;
-
-    p {
-        font-size: 20px;
-        font-family: $Poppins;  
-    }
-}
-
-.mySlides {
-    width: 50%;
-    // background: rgba(19, 24, 25, .4);
-    .title {
-        font-size: 2.5rem;
-        font-family: $Poppins; 
-        color: $white;
-        text-align: center;
-        span {
-            font-style: italic;
+        a {
+            border: 1px solid #fff;
+            padding: 10px 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: all .2s;
+            border-radius: 4px;
+            font-size: 18px;
+            font-family: $Poppins;
+            &:hover {
+                transform: translateY(-5px);
+                background: #fff;
+                color: $blue_dark;
+                font-weight: bold;
+            }
         }
     }
-    .description {
-        color: #000;
-        font-size: 16px;
-        line-height: 26px;
-        text-align: center;
+}
+
+#menuFixo {
+    z-index: 99999;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    .allTo {
+        width: 100%;
     }
 }
 
-.animation {
-    -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-@-webkit-keyframes slide-right {
-    0% {
-        -webkit-transform: translateX(100px);
-        transform: translateX(100px);
+@media only screen and (max-width: 600px) {
+    .header {
+        .logo {
+            margin-left: -7px;
+        }
+        .login {
+            display: none;
+        }
     }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes slide-right {
-    0% {
-        -webkit-transform: translateX(500px);
-        transform: translateX(500px);
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
+  }

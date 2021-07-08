@@ -2,9 +2,8 @@
   <div class="Lightbox__box">
     <ng-content></ng-content>
 
-    <button class="Lightbox__box--close" (click)="closeButton($event)">
+    <button class="Lightbox__box--close" (click)="closeModal.emit($event)">
       <i class="fa fa-times"></i>
-      <!-- <app-icons icon="fa-times" color="black" size="20">x</app-icons> -->
     </button>
 
   </div>

@@ -1,0 +1,22 @@
+<section class="backgroundPayment">
+    <div class="container">
+        <h2 id="paymentData" class="wow swing">Dados de Pagamento</h2>
+
+        <div class="pix">
+            <h4 class="wow fadeInLeftBig" data-wow-delay="1s"><span>Pix - (CPF):</span>39726708850 </h4>
+            <h4 class="wow fadeInLeftBig" data-wow-delay="0.4s"><span>Nome: </span>Thalison Oliveira da Silva
+            </h4>
+        </div>
+
+        <div class="bank">
+            <div class="card" *ngFor="let item of dataBank">
+                <h4 class="wow fadeInLeftBig"> {{ item.banco }}</h4>
+                <p class="wow fadeInRightBig"><span>Agencia: </span>{{ item.agencia }}</p>
+                <p class="wow fadeInLeftBig"><span>Conta: </span>{{ item.conta }}</p>
+                <p class="wow fadeInRightBig"><span>CPF: </span>{{ item.cpf }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
