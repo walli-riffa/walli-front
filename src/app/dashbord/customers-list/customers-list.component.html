@@ -16,23 +16,23 @@
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="name" placeholder="João henrique"
                  aria-label="Camiseta Leblon James"
-                 aria-describedby="basic-addon2" #search>
+                 aria-describedby="basic-addon2" #searchInput>
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+            <button class="btn btn-outline-secondary" (click)="search(searchInput.value)" type="button"><i class="fa fa-search"></i></button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="alert alert-warning mr-3 ml-3" role="alert" *ngIf="customres.length === 0 && !hasError">
+  <div class="alert alert-warning mr-3 ml-3" role="alert" *ngIf="customers.length === 0 && !hasError">
     Não encontramos nenhum cliente.
   </div>
   <div class="alert alert-danger mr-3 ml-3" role="alert" *ngIf="hasError">
     Não foi possível carregar algumas informações. Por favor,
     <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
   </div>
-  <div class="card mb-3 mr-3 ml-3">
+  <div class="card mb-3 mr-3 ml-3" *ngIf="!hasError && customers.length !== 0">
     <div class="table-responsive">
 
       <table class="table table-hover">
@@ -45,10 +45,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr scope="row" class="row-table" *ngFor="let b of [0,1,2,3,4]" routerLink="marca/">
-          <td>andre freitas {{b}}</td>
-          <td><i class="fas fa-user-cog text-secondary"></i></td>
-          <td><i class="fas fa-edit text-primary"></i></td>
+        <tr scope="row" class="row-table" *ngFor="let c of search(searchInput.value)" routerLink="/clientes/cliente/{{c.id}}">
+          <td>{{c.name}}</td>
+          <td><i class="fa fa-eye text-secondary"></i></td>
+          <td><i class="fa fa-edit text-primary"></i></td>
         </tr>
         </tbody>
       </table>
