@@ -14,25 +14,12 @@ export class LoginComponent implements OnInit {
   public loginForm!: any;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
+    private formBuilder: FormBuilder
   ) {
   }
-
-  
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.createForm();
-    if (this.router.url.includes('login')) {
-      this.route.params.pipe(
-        map(p => p.id)
-      ).subscribe(id => {
-        this.createForm();
-      });
-    }
-    this.createForm();  
   }
-
   private createForm(): void {
     this.loginData = this.formBuilder.group({
       user: new FormControl('', Validators.required),
@@ -40,8 +27,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    
+  login(): void {
   }
-
 }

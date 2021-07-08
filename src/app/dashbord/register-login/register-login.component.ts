@@ -9,21 +9,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./register-login.component.scss']
 })
 export class RegisterLoginComponent implements OnInit {
-
   public loginData: FormGroup = new FormGroup({});
   public loginForm!: any;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
   ) {
   }
 
-  ngOnInit(): void { 
-    this.createForm();  
+  ngOnInit(): void {
+    this.createForm();
   }
-
   private createForm(): void {
     this.loginData = this.formBuilder.group({
       user: new FormControl('', Validators.required),
@@ -31,9 +27,7 @@ export class RegisterLoginComponent implements OnInit {
     });
   }
 
-  login() {
-    
+  login(): void {
   }
-
 }
 
