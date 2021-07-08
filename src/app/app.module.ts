@@ -17,6 +17,7 @@ import { MenuBottomComponent } from './core/menu-bottom/menu-bottom.component';
 import { DataPaymentComponent } from './core/data-payment/data-payment.component';
 import { NgwWowModule } from 'ngx-wow';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './dashbord/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LightboxComponent,
     LoadingScreenComponent,
     MenuBottomComponent,
-    DataPaymentComponent
+    DataPaymentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
