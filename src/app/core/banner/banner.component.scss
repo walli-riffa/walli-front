@@ -1,3 +1,4 @@
+
 @import "../sass/variables";
 
 .filter {
@@ -32,13 +33,12 @@
             // text-shadow: 1px 1px 0px #e6e60c, -1px 1px 0px #e6e60c, -1px -1px 0px #e6e60c, 1px -1px 0px #e6e60c;
             color: $white;
             font-weight: bold;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
         }
         p {
             color: $white;
             font-size: 2.5rem;
             font-family: $OpenSans;
-            margin-bottom: 15px;
             position: relative;
             span {
                 font-weight: bold;
@@ -106,4 +106,84 @@
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 10px solid #e6e60c;
+  }
+
+  .slideshow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 160px;
+    width: 100%;
+
+    p {
+        font-size: 20px;
+        font-family: $Poppins;  
+    }
+}
+
+  .mySlides {
+    width: 25%;
+    background: rgba(19, 24, 25, 0.6);
+    border-radius: 6px;
+    .title {
+        font-size: 2.5rem;
+        font-family: $Poppins; 
+        color: $white;
+        text-align: center;
+        span {
+            font-style: italic;
+        }
+    }
+    .description {
+        color: #000;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.animation {
+    -webkit-animation: slide-right 0.5s cubic-bezier(-0.25, -0.46, -0.45, -0.94) both;
+    animation: slide-right 0.5s cubic-bezier(-0.25, -0.46, -0.45, -0.94) both;
+}
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(500px);
+        transform: translateX(500px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .banner {
+        h2 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        .image {
+            img {
+                bottom: 14%;
+                right: -8px;
+                width: 35%;
+            }
+        }
+    }
+    .mySlides {
+        width: 50%;
+    }
   }

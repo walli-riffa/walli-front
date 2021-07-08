@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {toUnicode} from 'punycode';
 import {NumberService} from '../../shared/services/number.service';
 import {take} from 'rxjs/operators';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-buttom-legend',
@@ -9,14 +9,26 @@ import {take} from 'rxjs/operators';
   styleUrls: ['./buttom-legend.component.scss']
 })
 export class ButtomLegendComponent implements OnInit {
-  numberChoose: number;
   listItem = [];
   modal: boolean;
+  modalVoid: boolean;
+  menuReserva: boolean;
   numbers = [];
 
+  colorBackground: any;
+
+  images = [
+    {path: '/assets/moto/foto-5.jpg'},
+    {path: '/assets/moto/foto-2.jpg'},
+    {path: '/assets/moto/foto-3.jpg'},
+    {path: '/assets/moto/foto-4.jpg'},
+    {path: '/assets/moto/foto-1.jpg'},
+];
   constructor(
-    private numberService: NumberService
+    private numberService: NumberService,
+    private wowService: NgwWowService
   ) {
+    this.wowService.init();
   }
 
   ngOnInit(): void {
@@ -32,26 +44,46 @@ export class ButtomLegendComponent implements OnInit {
     }
   }
 
-  getNumber(el): void {
-    this.numberChoose = el;
-    this.listItem.push({
-      value: el
-    });
-    console.log(this.listItem);
-    this.popUpOn();
+  getNumber(el, index): void {
+    if (this.listItem.find((l) => l === el)) {
+      this.listItem.splice(index, el);
+      console.log(index);
+    } else {
+      this.listItem.push(el);
+    }
+
+    if (this.listItem.length > 0) {
+      this.menuReserva = true;
+    } else {
+      this.menuReserva = false;
+    }
+
+  }
+
+  findColors(num: number): boolean {
+    return this.listItem.find( (n) => n === num);
+  }
+
+  goPayment(): void {
+    if (document.getElementById('paymentData')) {
+      const scrollTope = document.getElementById('paymentData')
+        .offsetTop
+        ? document.getElementById('paymentData').offsetTop
+        : 6000;
+      window.scroll({
+        top: scrollTope,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+    this.menuReserva = false;
   }
 
   popUpOn(): void {
-    this.modal = true;
+    if (this.listItem.length < 1) {
+      this.modalVoid = true;
+    } else {
+      this.modal = true;
+    }
   }
-
-  onClose(): void {
-    this.modal = false;
-  }
-
-  deletenumber(n): void {
-    // this.numbersSort.splice(2, 1);
-    console.log(n);
-  }
-
 }

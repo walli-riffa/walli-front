@@ -1,4 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-header',
@@ -9,29 +10,28 @@ export class HeaderComponent implements OnInit {
 
   slideIndex = 0;
 
-  constructor(private renderer: Renderer2) { }
+  topPosToStartShowing = 110;
+  showButton: boolean;
+
+  constructor(private wowService: NgwWowService) {
+    this.wowService.init();
+  }
 
   ngOnInit(): void {
-    this.showSlides();
+    this.showButton = false;
+    this.checkScroll();
+
   }
 
-  showSlides(): void {
-    let i;
-    const slides = document.getElementsByClassName('mySlides');
+  @HostListener('window:scroll')
 
+  checkScroll(): void {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    for (i = 0; i < slides.length; i++) {
-      this.renderer.setStyle(slides[i], 'display', 'none');
-      this.renderer.removeClass(slides[i], 'animation');
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.showButton = true;
+    } else {
+      this.showButton = false;
     }
-    this.slideIndex++;
-    if (this.slideIndex > slides.length) { this.slideIndex = 1; }
-
-    this.renderer.setStyle(slides[this.slideIndex - 1], 'display', 'block');
-    this.renderer.addClass(slides[this.slideIndex - 1], 'animation');
-    setTimeout(() => {
-      this.showSlides();
-    }, 2000);
   }
-
 }

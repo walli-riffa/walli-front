@@ -13,7 +13,10 @@ import { LightboxComponent } from './shared/lightbox/lightbox.component';
 import {LoadingScreenComponent} from './shared/components/loading-screen/loading-screen.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Interceptor} from './shared/guards/interceptor';
-
+import { MenuBottomComponent } from './core/menu-bottom/menu-bottom.component';
+import { DataPaymentComponent } from './core/data-payment/data-payment.component';
+import { NgwWowModule } from 'ngx-wow';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,17 @@ import {Interceptor} from './shared/guards/interceptor';
     BannerComponent,
     ButtomLegendComponent,
     LightboxComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    MenuBottomComponent,
+    DataPaymentComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     IvyCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    NgwWowModule
   ],
   providers: [
     {
