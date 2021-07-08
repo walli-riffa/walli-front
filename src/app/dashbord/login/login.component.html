@@ -1,1 +1,47 @@
-<p>login works!</p>
+<app-header></app-header>
+<div class="loginForm">
+    <!-- <div class="container"> -->
+    <form action="" class="form">
+        <div class="col-12 form__box">
+            <label class="label">Usuário:</label>
+            <div class="error">
+                <input type="text" class="text-input" placeholder="Usuario" autocomplete="off">
+                <span class="txtError">
+                    Usuário inválido.
+                </span>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="label">Senha:</label>
+            <div class="error">
+                <input type="text" class="text-input" placeholder="Senha" autocomplete="off">
+                <span class="txtError">
+                    Senha inválida.
+                </span>
+            </div>
+        </div>
+
+        <div class="button">
+            <button class="button__btn" (click)="login()">Entrar</button>
+        </div>
+    </form>
+</div>
+<!-- </div> -->
+
+<!-- <form class="LoginForm__inputs" action="" [formGroup]="loginData">
+    <div class="col-md-12">
+        <label class="label">Nome do segurado</label>
+        <div class="">
+          <input
+            [ngClass]="{'error': loginData.get('user').invalid && (loginData.get('user').dirty || loginData.get('user').touched)}"
+            class="text-input" user="user" onkeyup="this.value=this.value.replace(/[1234567890]/g,'')"
+            placeholder="Usuario" formControluser="user" autocomplete="off">
+          <span class="txtError"
+            *ngIf=" loginData.get('user').invalid && (loginData.get('user').dirty || loginData.get('user').touched)">
+            Campo inválido.
+          </span>
+        </div>
+      </div>
+</form> -->
+
