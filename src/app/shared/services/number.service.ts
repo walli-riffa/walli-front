@@ -18,4 +18,15 @@ export class NumberService {
   getAll(): Observable<Numbers[]> {
     return this.http.get<Numbers[]>(this.api);
   }
+
+  getAlByCustumer(idCustomer: string): Observable<Numbers[]> {
+    return this.http.get<Numbers[]>(this.api + 'customer/' + idCustomer);
+  }
+
+  buyNumber(idNumber: string, idCustomer: string): Observable<Numbers> {
+    return this.http.get<Numbers>(this.api + + 'buy/' + idNumber + '/customer/' + idCustomer);
+  }
+  removeCustomer(idNumber: string): Observable<Numbers> {
+    return this.http.get<Numbers>(this.api + + 'remove/' + idNumber);
+  }
 }
