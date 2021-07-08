@@ -1,0 +1,68 @@
+<div class="container-fluid w-100 mb-5">
+  <form [formGroup]="formBrand">
+    <div class="row mt-3">
+      <div class="col-lg-8 col-sm-12 mb-3 mb-lg-0">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/clientes">Clientes</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> {{brand?.id ? 'Editar' : 'Novo Cliente' }}</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
+        <button type="button" class="btn btn-secondary w-100" routerLink="/painel/marcas">Cancelar</button>
+      </div>
+      <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
+        <button
+          type="button"
+          class="btn btn-primary w-100"
+          [disabled]="formBrand.invalid">Salvar
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="hasError">
+      Não foi possível carregar algumas informações. Por favor, <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
+    </div>
+    <div class="row mt-3"  *ngIf="!hasError">
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Informações da Marca</h5>
+            <hr>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Nome da Marca</label>
+                <input type="text" class="form-control" id="categorieName" formControlName="name" placeholder="ex: Adidas"
+                       [ngClass]="cssError(formBrand.get('name'))">
+                <div id="field-name" class="invalid-feedback">
+                  Por favor, insira o nome de uma marca.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Nome da Marca</label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="usuario@gmail.com"
+                       [ngClass]="cssError(formBrand.get('email'))">
+                <div id="field-email" class="invalid-feedback">
+                  Por favor, insira o email.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 mb-3">
+                <label for="categorieName">Nome da Marca</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone"
+                       [ngClass]="cssError(formBrand.get('phone'))">
+                <div id="field-phone" class="invalid-feedback">
+                  Por favor, insira o celular.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

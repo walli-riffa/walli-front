@@ -18,6 +18,10 @@ import { DataPaymentComponent } from './core/data-payment/data-payment.component
 import { NgwWowModule } from 'ngx-wow';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './dashbord/login/login.component';
+import { CustomersListComponent } from './dashbord/customers-list/customers-list.component';
+import { CustomersNewComponent } from './dashbord/customers-new/customers-new.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { LoginComponent } from './dashbord/login/login.component';
     LoadingScreenComponent,
     MenuBottomComponent,
     DataPaymentComponent,
-    LoginComponent
+    LoginComponent,
+    CustomersListComponent,
+    CustomersNewComponent,
+    RegisterLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,9 @@ import { LoginComponent } from './dashbord/login/login.component';
     AppRoutingModule,
     IvyCarouselModule,
     HttpClientModule,
-    NgwWowModule
+    NgwWowModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     {

@@ -3,13 +3,13 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register-login',
+  templateUrl: './register-login.component.html',
+  styleUrls: ['./register-login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterLoginComponent implements OnInit {
+
   public loginData: FormGroup = new FormGroup({});
   public loginForm!: any;
 
@@ -20,16 +20,7 @@ export class LoginComponent implements OnInit {
   ) {
   }
 
-  
   ngOnInit(): void { 
-    this.createForm();
-    if (this.router.url.includes('login')) {
-      this.route.params.pipe(
-        map(p => p.id)
-      ).subscribe(id => {
-        this.createForm();
-      });
-    }
     this.createForm();  
   }
 
@@ -45,3 +36,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
