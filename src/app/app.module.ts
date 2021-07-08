@@ -21,6 +21,7 @@ import { LoginComponent } from './dashbord/login/login.component';
 import { CustomersListComponent } from './dashbord/customers-list/customers-list.component';
 import { CustomersNewComponent } from './dashbord/customers-new/customers-new.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DataPaymentComponent,
     LoginComponent,
     CustomersListComponent,
-    CustomersNewComponent
+    CustomersNewComponent,
+    RegisterLoginComponent
   ],
   imports: [
     BrowserModule,
