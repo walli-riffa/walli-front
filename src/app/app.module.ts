@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { CustomersListComponent } from './dashbord/customers-list/customers-list
 import { CustomersNewComponent } from './dashbord/customers-new/customers-new.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
+import { DataClientComponent } from './dashbord/data-client/data-client.component';
 import {AuthGuard} from './shared/guards/auth-guard';
 import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
 
@@ -40,7 +41,8 @@ import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
     LoginComponent,
     CustomersListComponent,
     CustomersNewComponent,
-    RegisterLoginComponent
+    RegisterLoginComponent,
+    DataClientComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+.butons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.acquiredNumbers {
+    padding: 60px 0;
+}
+
+.draw {
+    padding: 60px 0 0;
+    .numberSort {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: start;
+        margin-top: 15px;
+        margin-bottom: 40px;
+    }
+}
