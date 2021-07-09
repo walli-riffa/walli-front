@@ -1,17 +1,29 @@
 <div class="acquiredNumbers">
     <div class="container">
+        <section class="draw">
+            <div class="container">
+                <div class="title">
+                    <p>Numeros disponiveis:</p>
+                </div>
+                <div class="numberSort">
+                    <button type="submit" 
+                        *ngFor="let numberSelect of numbers, let i = index"
+                        class="rifa_number item_reservado tooltip_flip"
+                        [ngClass]="{'selected': findColors(numberSelect)}"
+                        (click)="getNumber(numberSelect, i)"
+                        >
+                        {{ numberSelect }}
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <div class="name">
             <p>Vinicius Oliveira</p>
         </div>
-        <!-- <div class="butons"> -->
-            <div class="adicionar">
-                <label class="label">Digite um número:</label>
-                <div>
-                    <input type="number" class="text-input" placeholder="0" name="numberChoose" [(ngModel)]="numberChoose" onkeyup="this.value=this.value.replace(/[<>!@#$%*~;&qwertyuiopasdfghjklzxcvbnm():=]/g,'')" autocomplete="off">
-                </div>
-            </div>
+
             <div class="button">
-                <button class="button__btn" (click)="add(numberChoose)">Adicionar <i class="fa fa-plus"></i></button>
+                <button class="button__btn" (click)="add(listItem)">Adicionar <i class="fa fa-plus"></i></button>
                 <button class="button__btn" (click)="remove(numberChoose)">Remover <i class="fa fa-trash"></i></button>              
             </div>
         <!-- </div> -->
@@ -19,9 +31,17 @@
 
     <section class="draw">
         <div class="container">
+            <div class="title">
+                <p>Numeros contratados:</p>
+            </div>
             <div class="numberSort">
-                <button type="submit" *ngFor="let numbers of listNumbers" class="rifa_number item_reservado tooltip_flip">
-                    {{ numbers }}
+                <button type="submit" 
+                    *ngFor="let item of numbersContract, let i = index"
+                    class="rifa_number item_reservado tooltip_flip"
+                    [ngClass]="{'selected': findColors(item)}"
+                    (click)="getNumber(item, i)"
+                    >
+                    {{ item }}
                 </button>
             </div>
         </div>
