@@ -171,6 +171,17 @@
 
 @media only screen and (max-width: 600px) {
     .banner {
+        background: url(/assets/time.jpg) no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        top: 0;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        opacity: 1;
+        z-index: -1;
+        position: relative;
+        overflow: hidden;
         h2 {
             font-size: 2rem;
         }
