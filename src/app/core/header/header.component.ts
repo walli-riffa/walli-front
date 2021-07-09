@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
     this.showButton = false;
     this.checkScroll();
     this.isLogged = this.tokenStorageService.isLoggedIn() ? true : false;
-    console.log(this.isLogged);
   }
 
   @HostListener('window:scroll')

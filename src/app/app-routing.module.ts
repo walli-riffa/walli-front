@@ -39,7 +39,7 @@ const routes: Routes = [
     component: RegisterLoginComponent
   },
   {
-    path: 'numeros-contratados',
+    path: 'numeros-contratados/:id',
     component: DataClientComponent
   },
 ];

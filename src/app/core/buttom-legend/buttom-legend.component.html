@@ -1,16 +1,16 @@
 <section class="draw">
     <div class="container">
         <div class="legend">
-            <button type="submit" class="btn available wow bounceInLeft">Disponível (0)</button>
-            <button type="submit" class="btn reserved wow fadeInDownBig">Indisponível (0)</button>
-            <button type="submit" class="btn selected wow fadeInRightBig">Selecionado ({{listItem.length}})</button>
+            <button type="submit" class="btn available wow bounceInLeft" (click)="filter(true)">Disponível ({{numbersAvailable.length}})</button>
+            <button type="submit" class="btn reserved wow fadeInDownBig" (click)="filter(false)">Indisponível ({{numbersReserved.length}})</button>
+            <button type="submit" class="btn selected wow fadeInRightBig" (click)="selected()">Selecionado ({{listItem.length}})</button>
         </div>
 
         <div class="numberSort">
-            <button type="submit" *ngFor="let numberSelect of numbers, let i = index"
-                [ngClass]="{'selected': findColors(numberSelect)}" (click)="getNumber(numberSelect, i)"
+            <button type="submit" [disabled]="!numberSelect.active" *ngFor="let numberSelect of numbers, let i = index"
+                [ngClass]="{'selected': findColors(numberSelect)}" (click)="getNumber(numberSelect)"
                 class="rifa_number item_reservado tooltip_flip">
-                {{numberSelect}}
+                {{numberSelect.number}}
             </button>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <h2>Reserva de número</h2>
         <label class="label">Deseja reservar o(s) número(s):
         </label>
-            <p *ngFor="let item of listItem">{{item}} <i class="fa fa-trash-o" title="Remover número"></i></p> 
+            <p *ngFor="let item of listItem">{{item.number}} <i class="fa fa-trash-o" title="Remover número"></i></p>
     </div>
     <div class="d-flex align-center">
         <label class="label">Nome:</label>

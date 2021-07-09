@@ -83,7 +83,6 @@ export class TokenStorageService {
 
   getExpiration(): any {
     const expiration = localStorage.getItem(EXPIRES_AT);
-    console.log(expiration);
     if (expiration != null) {
       const expiresAt = JSON.parse(CryptoJS.AES.decrypt(expiration, TOKEN_HASH_KEY).toString(CryptoJS.enc.Utf8));
       return moment(expiresAt);

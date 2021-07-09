@@ -6,25 +6,25 @@
                     <p>Numeros disponiveis:</p>
                 </div>
                 <div class="numberSort">
-                    <button type="submit" 
+                    <button type="submit"
                         *ngFor="let numberSelect of numbers, let i = index"
                         class="rifa_number item_reservado tooltip_flip"
                         [ngClass]="{'selected': findColors(numberSelect)}"
-                        (click)="getNumber(numberSelect, i)"
+                        (click)="getNumber(numberSelect)"
                         >
-                        {{ numberSelect }}
+                        {{ numberSelect.number }}
                     </button>
                 </div>
             </div>
         </section>
 
         <div class="name">
-            <p>Vinicius Oliveira</p>
+            <p>{{customer?.name}}</p>
         </div>
 
             <div class="button">
                 <button class="button__btn" (click)="add(listItem)">Adicionar <i class="fa fa-plus"></i></button>
-                <button class="button__btn" (click)="remove(numberChoose)">Remover <i class="fa fa-trash"></i></button>              
+                <button class="button__btn" (click)="remove(listItemRemove)">Remover <i class="fa fa-trash"></i></button>
             </div>
         <!-- </div> -->
     </div>
@@ -35,13 +35,13 @@
                 <p>Numeros contratados:</p>
             </div>
             <div class="numberSort">
-                <button type="submit" 
+                <button type="submit"
                     *ngFor="let item of numbersContract, let i = index"
                     class="rifa_number item_reservado tooltip_flip"
-                    [ngClass]="{'selected': findColors(item)}"
-                    (click)="getNumber(item, i)"
+                    [ngClass]="{'selected': findColorsRemove(item)}"
+                    (click)="getNumberRemove(item)"
                     >
-                    {{ item }}
+                    {{ item.number }}
                 </button>
             </div>
         </div>

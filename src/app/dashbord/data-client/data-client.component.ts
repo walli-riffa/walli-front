@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {map, take} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CustomerService} from '../../shared/services/customer.service';
+import {Customer} from '../../shared/models/customer';
+import {NumberService} from '../../shared/services/number.service';
+import {Numbers} from '../../shared/models/numbers';
+import {zip} from 'rxjs';
 
 @Component({
   selector: 'app-data-client',
@@ -9,38 +16,117 @@ export class DataClientComponent implements OnInit {
 
   numberChoose: any;
 
-  numbers = [];
+  numbers: Numbers[] = [];
   listItem = [];
-  numbersContract = [];
-  constructor() { }
+  listItemRemove = [];
+
+  numbersContract: Numbers[] = [];
+
+  public customer!: Customer;
+  hasError!: boolean;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private customerService: CustomerService,
+    private numberService: NumberService
+  ) {
+  }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 10; i++) {
-      this.numbers.push(i);
-    }
+
+    this.route.params.pipe(
+      map(p => p.id)
+    ).subscribe(id => {
+      this.customerService.getAllById(id)
+        .subscribe(r => {
+          this.customer = r;
+          this.getNumbers();
+          this.getNumbersContract();
+        }, () => {
+          this.hasError = true;
+        });
+    });
   }
 
-  getNumber(el, index): void {
-    if (this.listItem.find((l) => l === el)) {
-      this.listItem.splice(index, el);
-      console.log(this.listItem);
+  getNumbers(): void {
+    this.numberService.getAll()
+      .pipe(take(1))
+      .subscribe(r => {
+        this.numbers = r.filter(n => n.active);
+      }, () => {
+        this.hasError = true;
+      });
+  }
+
+  getNumbersContract(): void {
+    this.numberService.getAlByCustumer(this.customer.id)
+      .pipe(take(1))
+      .subscribe(r => {
+        this.numbersContract = r;
+      }, () => {
+        this.hasError = true;
+      });
+  }
+
+  getNumber(el): void {
+    const numberRemove = this.listItem.find((l) => l === el);
+    if (numberRemove) {
+      this.listItem = this.listItem.filter(n => n !== numberRemove);
     } else {
       this.listItem.push(el);
-      console.log(this.listItem);
     }
   }
 
-  findColors(num: number): boolean {
-    return this.listItem.find( (n) => n === num);
+  getNumberRemove(el): void {
+    const numberRemove = this.listItemRemove.find((l) => l === el);
+    if (numberRemove) {
+      this.listItemRemove = this.listItemRemove.filter(n => n !== numberRemove);
+    } else {
+      this.listItemRemove.push(el);
+    }
   }
 
-  add(e: any): void {
-    console.log(e);
-    this.numbersContract = e;
+  findColors(num: Numbers): boolean {
+    return this.listItem.find((n) => n === num);
   }
 
-  remove(e: any): void {
-    console.log(e);
+  findColorsRemove(num: Numbers): boolean {
+    return this.listItemRemove.find((n) => n === num);
+  }
+
+  add(e: Numbers[]): void {
+    const requests = [];
+    e.forEach((n: Numbers) => {
+      requests.push(this.numberService.buyNumber(n.id, this.customer.id));
+    });
+    zip(...requests)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.listItemRemove = [];
+        this.listItem = [];
+        this.getNumbers();
+        this.getNumbersContract();
+      }, () => {
+        this.hasError = true;
+      });
+  }
+
+  remove(e: Numbers[]): void {
+    const requests = [];
+    e.forEach((n: Numbers) => {
+      requests.push(this.numberService.removeCustomer(n.id));
+    });
+    zip(...requests)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.listItemRemove = [];
+        this.listItem = [];
+        this.getNumbers();
+        this.getNumbersContract();
+      }, () => {
+        this.hasError = true;
+      });
   }
 
 }

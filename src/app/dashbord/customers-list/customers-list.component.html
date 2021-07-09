@@ -46,10 +46,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr scope="row" class="row-table" *ngFor="let c of search(searchInput.value)" routerLink="/clientes/cliente/{{c.id}}">
+        <tr scope="row" class="row-table" *ngFor="let c of search(searchInput.value)" >
           <td>{{c.name}}</td>
-          <td><i class="fa fa-eye text-secondary"></i></td>
-          <td><i class="fa fa-edit text-primary"></i></td>
+          <td><i class="fa fa-eye text-secondary" routerLink="/numeros-contratados/{{c.id}}"></i></td>
+          <td><i class="fa fa-edit text-primary" routerLink="/clientes/cliente/{{c.id}}"></i></td>
         </tr>
         </tbody>
       </table>

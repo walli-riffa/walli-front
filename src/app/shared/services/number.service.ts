@@ -24,9 +24,9 @@ export class NumberService {
   }
 
   buyNumber(idNumber: string, idCustomer: string): Observable<Numbers> {
-    return this.http.get<Numbers>(this.api + + 'buy/' + idNumber + '/customer/' + idCustomer);
+    return this.http.put<Numbers>(this.api + 'buy/' + idNumber + '/customer/' + idCustomer, {});
   }
   removeCustomer(idNumber: string): Observable<Numbers> {
-    return this.http.get<Numbers>(this.api + + 'remove/' + idNumber);
+    return this.http.put<Numbers>(this.api + 'remove/' + idNumber, {});
   }
 }
