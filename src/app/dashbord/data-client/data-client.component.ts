@@ -10,7 +10,6 @@ export class DataClientComponent implements OnInit {
   numberChoose: number;
 
   listNumbers = [];
-  
 
   constructor() { }
 
