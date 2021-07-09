@@ -5,6 +5,7 @@ import { LoginComponent } from './dashbord/login/login.component';
 import {CustomersListComponent} from './dashbord/customers-list/customers-list.component';
 import {CustomersNewComponent} from './dashbord/customers-new/customers-new.component';
 import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
+import { DataClientComponent } from './dashbord/data-client/data-client.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'cadastrar',
     component: RegisterLoginComponent
+  },
+  {
+    path: 'numeros-contratados',
+    component: DataClientComponent
   },
 ];
 
