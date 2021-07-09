@@ -15,21 +15,6 @@
         </div>
     </div>
 
-    <div class="carousel-cell wow fadeInLeftBig">
-        <div class="container">
-        <carousel
-        class="sizeSlide"
-        [images]="images"
-        [overflowCellsLimit]="1"
-        [objectFit]="'cover'"
-        [cellWidth]="'100%'"
-        [autoplay]="true"
-        [dots]="true"
-        [loop]="true">
-        </carousel>
-    </div>  
-    </div>
-
     <app-menu-bottom *ngIf="menuReserva" (finalizarCompra)="goPayment()"></app-menu-bottom>
 
     <div class="container">
