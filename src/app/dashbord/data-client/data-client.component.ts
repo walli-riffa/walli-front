@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataClientComponent implements OnInit {
 
+  numberChoose: number;
+
+  listNumbers = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  add(e: any): void {
+    this.listNumbers.push(e);
+    console.log(this.listNumbers);
+  }
+
+  remove(e: any): void {
+    console.log(e);
   }
 
 }
