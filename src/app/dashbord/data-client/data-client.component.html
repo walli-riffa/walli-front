@@ -1,40 +1,27 @@
 <div class="acquiredNumbers">
     <div class="container">
-        <div class="butons">
-            <div class="adicionar">
-                <i class="fa fa-trash"></i>
-            </div>
-            <div class="adicionar">
-                <i class="fa fa-plus"></i>
-            </div>
+        <div class="name">
+            <p>Vinicius Oliveira</p>
         </div>
+        <!-- <div class="butons"> -->
+            <div class="adicionar">
+                <label class="label">Digite um número:</label>
+                <div>
+                    <input type="number" class="text-input" placeholder="0" name="numberChoose" [(ngModel)]="numberChoose" onkeyup="this.value=this.value.replace(/[<>!@#$%*~;&qwertyuiopasdfghjklzxcvbnm():=]/g,'')" autocomplete="off">
+                </div>
+            </div>
+            <div class="button">
+                <button class="button__btn" (click)="add(numberChoose)">Adicionar <i class="fa fa-plus"></i></button>
+                <button class="button__btn" (click)="remove(numberChoose)">Remover <i class="fa fa-trash"></i></button>              
+            </div>
+        <!-- </div> -->
     </div>
 
     <section class="draw">
         <div class="container">
             <div class="numberSort">
-                <button type="submit"
-                    class="rifa_number item_reservado tooltip_flip">
-                    teste
-                </button>
-            </div>
-            <div class="numberSort">
-                <button type="submit"
-                    class="rifa_number item_reservado tooltip_flip">
-                    teste
-                </button>
-            </div>
-            <div class="numberSort">
-                <button type="submit"
-                    class="rifa_number item_reservado tooltip_flip">
-                    teste
-                </button>
-            </div>
-
-                        <div class="numberSort">
-                <button type="submit"
-                    class="rifa_number item_reservado tooltip_flip">
-                    teste
+                <button type="submit" *ngFor="let numbers of listNumbers" class="rifa_number item_reservado tooltip_flip">
+                    {{ numbers }}
                 </button>
             </div>
         </div>
