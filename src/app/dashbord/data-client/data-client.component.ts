@@ -7,18 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataClientComponent implements OnInit {
 
-  numberChoose: number;
+  numberChoose: any;
 
-  listNumbers = [];
-
+  numbers = [];
+  listItem = [];
+  numbersContract = [];
   constructor() { }
 
   ngOnInit(): void {
+    for (let i = 1; i <= 10; i++) {
+      this.numbers.push(i);
+    }
+  }
+
+  getNumber(el, index): void {
+    if (this.listItem.find((l) => l === el)) {
+      this.listItem.splice(index, el);
+      console.log(this.listItem);
+    } else {
+      this.listItem.push(el);
+      console.log(this.listItem);
+    }
+  }
+
+  findColors(num: number): boolean {
+    return this.listItem.find( (n) => n === num);
   }
 
   add(e: any): void {
-    this.listNumbers.push(e);
-    console.log(this.listNumbers);
+    console.log(e);
+    this.numbersContract = e;
   }
 
   remove(e: any): void {
