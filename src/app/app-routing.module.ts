@@ -5,6 +5,8 @@ import { LoginComponent } from './dashbord/login/login.component';
 import {CustomersListComponent} from './dashbord/customers-list/customers-list.component';
 import {CustomersNewComponent} from './dashbord/customers-new/customers-new.component';
 import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
+import {AuthDashGuard} from './shared/guards/auth-dash-guard';
+import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
 
 const routes: Routes = [
   {
@@ -13,19 +15,23 @@ const routes: Routes = [
   },
   {
     path: 'clientes',
-    component: CustomersListComponent
+    component: CustomersListComponent,
+    canActivate: [AuthDashGuard],
   },
   {
     path: 'clientes/novo-cliente',
-    component: CustomersNewComponent
+    component: CustomersNewComponent,
+    canActivate: [AuthDashGuard],
   },
   {
     path: 'clientes/cliente/:id',
-    component: CustomersNewComponent
+    component: CustomersNewComponent,
+    canActivate: [AuthDashGuard],
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthVerifyLogin]
   },
   {
     path: 'cadastrar',
