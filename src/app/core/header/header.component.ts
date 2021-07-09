@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { NgwWowService } from 'ngx-wow';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {NgwWowService} from 'ngx-wow';
+import {TokenStorageService} from '../../shared/services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +13,18 @@ export class HeaderComponent implements OnInit {
 
   topPosToStartShowing = 110;
   showButton: boolean;
+  isLogged = false;
 
-  constructor(private wowService: NgwWowService) {
+  constructor(private wowService: NgwWowService, private tokenStorageService: TokenStorageService
+  ) {
     this.wowService.init();
   }
 
   ngOnInit(): void {
     this.showButton = false;
     this.checkScroll();
-
+    this.isLogged = this.tokenStorageService.isLoggedIn() ? true : false;
+    console.log(this.isLogged);
   }
 
   @HostListener('window:scroll')
@@ -33,5 +37,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.showButton = false;
     }
+  }
+
+  loggout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 }

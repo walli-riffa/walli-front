@@ -10,7 +10,7 @@
         </nav>
       </div>
       <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
-        <button type="button" class="btn btn-secondary w-100" routerLink="/painel/marcas">Cancelar</button>
+        <button type="button" class="btn btn-secondary w-100" routerLink="/clientes">Cancelar</button>
       </div>
       <div class="col-lg-2 col-sm-12 mb-3 mb-lg-0">
         <button
@@ -22,9 +22,10 @@
       </div>
     </div>
     <div class="alert alert-danger" role="alert" *ngIf="hasError">
-      Não foi possível carregar algumas informações. Por favor, <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
+      Não foi possível carregar algumas informações. Por favor,
+      <div class="alert-link" (click)="ngOnInit()">tente novamente.</div>
     </div>
-    <div class="row mt-3"  *ngIf="!hasError">
+    <div class="row mt-3" *ngIf="!hasError">
       <div class="col-12 mb-3">
         <div class="card">
           <div class="card-body">
@@ -33,7 +34,8 @@
             <div class="form-row">
               <div class="form-group col-12 mb-3">
                 <label for="categorieName">Nome</label>
-                <input type="text" class="form-control" id="categorieName" formControlName="name" placeholder="ex: Adidas"
+                <input type="text" class="form-control" id="categorieName" formControlName="name"
+                       placeholder="ex: Adidas"
                        [ngClass]="cssError(formBrand.get('name'))">
                 <div id="field-name" class="invalid-feedback">
                   Por favor, insira o nome de uma marca.
@@ -43,7 +45,8 @@
             <div class="form-row">
               <div class="form-group col-12 mb-3">
                 <label for="categorieName"> Email</label>
-                <input type="text" class="form-control" id="email" formControlName="email" placeholder="usuario@gmail.com"
+                <input type="text" class="form-control" id="email" formControlName="email"
+                       placeholder="usuario@gmail.com"
                        [ngClass]="cssError(formBrand.get('email'))">
                 <div id="field-email" class="invalid-feedback">
                   Por favor, insira o email.

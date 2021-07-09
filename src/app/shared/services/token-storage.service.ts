@@ -83,6 +83,7 @@ export class TokenStorageService {
 
   getExpiration(): any {
     const expiration = localStorage.getItem(EXPIRES_AT);
+    console.log(expiration);
     if (expiration != null) {
       const expiresAt = JSON.parse(CryptoJS.AES.decrypt(expiration, TOKEN_HASH_KEY).toString(CryptoJS.enc.Utf8));
       return moment(expiresAt);
@@ -90,7 +91,10 @@ export class TokenStorageService {
   }
 
   isLoggedIn(): any {
-    return moment().isBefore(this.getExpiration());
+    if (this.getExpiration()) {
+      return moment().isBefore(this.getExpiration());
+    }
+    return false;
   }
 
   public getToken(): string | null {
