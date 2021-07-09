@@ -1,24 +1,27 @@
-<header class="header"  *ngIf="!showButton">
-    <div class="container d-flex p-2 bd-highlight">
-        <!-- <img src="/assets/inocente-walison.jpg" alt=""> -->
-        <div class="logo col-md-4 col-sm-12">
-            <img class="wow wow bounceInLeft" src="/assets/logo.png" alt="logo">
-        </div>
-        <div class="allTo col-md-4 col-sm-12">
-            <h2 class="wow bounceInRight" data-wow-delay="0.3s">#TodosPeloWaly</h2>
-        </div>
-
-        <div class="allTo login col-md-4 col-sm-12">
-            <a class="wow bounceInRight" data-wow-delay="0.6s" href="">Login</a>
-        </div>
+<header class="header" *ngIf="!showButton">
+  <div class="container d-flex p-2 bd-highlight">
+    <!-- <img src="/assets/inocente-walison.jpg" alt=""> -->
+    <div class="logo col-md-4 col-sm-12">
+      <img class="wow wow bounceInLeft" src="/assets/logo.png" alt="logo">
     </div>
+    <div class="allTo col-md-4 col-sm-12">
+      <h2 class="wow bounceInRight" data-wow-delay="0.3s">#TodosPeloWaly</h2>
+    </div>
+
+    <div class="allTo login col-md-4 col-sm-12" *ngIf="isLogged">
+      <a class="wow bounceInRight" data-wow-delay="0.6s" (click)="loggout()">Sair</a>
+    </div>
+    <div class="allTo login col-md-4 col-sm-12" *ngIf="isLogged">
+      <a class="wow bounceInRight" data-wow-delay="0.6s"  routerLink="/clientes">Painel</a>
+    </div>
+  </div>
 </header>
 
 
 <header class="header" *ngIf="showButton" id="menuFixo">
-    <div class="container d-flex p-2 bd-highlight">
-        <div class="allTo">
-            <h2>#TodosPeloWaly</h2>
-        </div>
+  <div class="container d-flex p-2 bd-highlight">
+    <div class="allTo">
+      <h2>#TodosPeloWaly</h2>
     </div>
+  </div>
 </header>

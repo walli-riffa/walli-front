@@ -23,6 +23,8 @@ import { CustomersNewComponent } from './dashbord/customers-new/customers-new.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterLoginComponent } from './dashbord/register-login/register-login.component';
 import { DataClientComponent } from './dashbord/data-client/data-client.component';
+import {AuthGuard} from './shared/guards/auth-guard';
+import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { DataClientComponent } from './dashbord/data-client/data-client.componen
       useClass: Interceptor,
       multi: true
     },
+    AuthGuard,
+    AuthVerifyLogin
   ],
   bootstrap: [AppComponent],
   schemas: [

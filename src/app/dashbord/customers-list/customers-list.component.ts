@@ -22,7 +22,7 @@ export class CustomersListComponent implements OnInit {
       .pipe(take(1))
       .subscribe(c => {
         this.customers = c;
-      }, error => {
+      }, () => {
         this.hasError = true;
       });
   }
