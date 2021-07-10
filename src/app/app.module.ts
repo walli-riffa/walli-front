@@ -31,7 +31,7 @@ import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import { OrdemNumbersPipe } from './shared/ordem-numbers.pipe';
-registerLocaleData(localePt)
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -71,8 +71,8 @@ registerLocaleData(localePt)
       multi: true
     },
     {
-      provide: LOCALE_ID, 
-      useValue: "pt-BR"
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
     },
     AuthGuard,
     AuthVerifyLogin

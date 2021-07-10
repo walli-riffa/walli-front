@@ -6,7 +6,7 @@ import sortBy from 'sort-by';
 })
 export class OrdemNumbersPipe implements PipeTransform {
 
-  transform(list: Object[], params?: string): Object[] {
+  transform(list: any, params?: string): any {
     if (params.length) {
       return list.sort(sortBy(params));
     }
