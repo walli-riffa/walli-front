@@ -86,7 +86,7 @@ export class ButtomLegendComponent implements OnInit {
       const scrollTope = document.getElementById('paymentData')
         .offsetTop
         ? document.getElementById('paymentData').offsetTop
-        : 6000;
+        : 5000;
       window.scroll({
         top: scrollTope,
         left: 0,
