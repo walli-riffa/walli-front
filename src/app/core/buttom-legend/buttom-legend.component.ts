@@ -111,11 +111,13 @@ export class ButtomLegendComponent implements OnInit {
     if (!this.dataClient.invalid) {
       this.clientName = this.dataClient.get('name').value;
       this.clientTel = this.dataClient.get('tel').value;
+
+      const valorTotal = this.listItem.length * 25;
       this.convertString();
       if (this.isMobile()) {
-        window.open('https://api.whatsapp.com/send?phone=5511986354536&text=Nome: ' + this.clientName  + ', Telefone: ' + this.clientTel + ', Número(s) escolhido(s) ' + this.numbersChoose + '.', '_blank');
+        window.open('https://api.whatsapp.com/send?phone=5511986354536&text=Nome: ' + this.clientName  + ', Telefone: ' + this.clientTel + ', Número(s) escolhido(s) ' + this.numbersChoose + ' Valor total: R$ ' + valorTotal + ',00.', '_blank');
       } else {
-        window.open('https://web.whatsapp.com/send?phone=5511986354536&text=Nome: ' + this.clientName  + ', Telefone: ' + this.clientTel + ', Número(s) escolhido(s) ' + this.numbersChoose + '.', '_blank');
+        window.open('https://web.whatsapp.com/send?phone=5511986354536&text=Nome: ' + this.clientName  + ', Telefone: ' + this.clientTel + ', Número(s) escolhido(s) ' + this.numbersChoose + ' Valor total: R$ ' + valorTotal + ',00.', '_blank');
       }
       this.modal = false;
       this.listItem = [];

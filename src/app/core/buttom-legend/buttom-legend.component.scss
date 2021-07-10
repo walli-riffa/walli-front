@@ -100,6 +100,12 @@
   }
 }
 
+.valueTotal {
+  text-align: center;
+  span {
+    font-family: $Poppins;
+  }
+}
 .description_payment {
   font-size: 14px;
   font-family: $OpenSans;
@@ -238,7 +244,7 @@
 }
 
 .numberSort::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: red;
 }
 
 .txtError {

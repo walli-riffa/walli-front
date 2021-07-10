@@ -27,7 +27,11 @@ import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SlideShowComponent } from './core/slide-show/slide-show.component';
 import { NgxMaskModule } from 'ngx-mask';
-
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+import { OrdemNumbersPipe } from './shared/ordem-numbers.pipe';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { NgxMaskModule } from 'ngx-mask';
     CustomersNewComponent,
     RegisterLoginComponent,
     DataClientComponent,
-    SlideShowComponent
+    SlideShowComponent,
+    OrdemNumbersPipe,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,10 @@ import { NgxMaskModule } from 'ngx-mask';
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,
       multi: true
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
     },
     AuthGuard,
     AuthVerifyLogin
