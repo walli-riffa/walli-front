@@ -21,3 +21,6 @@
     </form>
 </div>
 
+<app-lightbox *ngIf="modalVoid" (closeModal)="modalVoid = false" class="infos__lightbox">
+    <p class="noting">Senha Incorreta</p>
+</app-lightbox>

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  WALLI_API: 'http://localhost:8080/',
-  // WALLI_API: 'https://walliback.herokuapp.com/',
+  // WALLI_API: 'http://localhost:8080/',
+  WALLI_API: 'https://walliback.herokuapp.com/',
   TOKEN_HASH_KEY: 'TOKEN_HASH_KEY_',
   USER_HASH_KEY: 'USER_HASH_KEY'
 };

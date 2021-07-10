@@ -15,8 +15,6 @@
         </div>
     </div>
 
-    <app-menu-bottom *ngIf="menuReserva" (finalizarCompra)="goPayment()"></app-menu-bottom>
-
     <div class="container">
         <div class="description_payment"  id="paymentData">
             <p class="wow fadeInRightBig">Para reservar seu(s) numero(s) clique no numero(s) escolhido(s), faça a transfêrencia TED, DOC ou PIX,
@@ -35,28 +33,56 @@
         <h2>Reserva de número</h2>
         <label class="label">Deseja reservar o(s) número(s):
         </label>
-            <p *ngFor="let item of listItem">{{item.number}} <i class="fa fa-trash-o" title="Remover número"></i></p>
+            <p *ngFor="let item of listItem">{{item.number}}
+                <button (click)="removeCompra(item)"><i class="fa fa-times"></i></button>
+
+            </p>
     </div>
+    <form action="" [formGroup]="dataClient">
     <div class="d-flex align-center">
         <label class="label">Nome:</label>
         <div class="size">
-            <input type="text"
-                class="text-input" placeholder="Nome"
+            <input type="text" 
+                [ngClass]="{'error': dataClient.get('name').invalid && (dataClient.get('name').dirty || dataClient.get('name').touched)}"
+                class="text-input" 
+                placeholder="Nome" 
+                formControlName="name"
                 onkeyup="this.value=this.value.replace(/[<>!@#$%*~;&1234567890():=]/g,'')">
+            <span class="txtError"
+                *ngIf=" dataClient.get('name').invalid && (dataClient.get('name').dirty || dataClient.get('name').touched)">
+                nome inválido.
+             </span>
         </div>
     </div>
 
     <div class="d-flex align-center">
         <label class="label">Telefone:</label>
         <div class="size">
-            <input type="tel"
-            class="text-input" placeholder="(00) 00000-0000">
+            <input type="tel" 
+                [ngClass]="{'error': dataClient.get('tel').invalid && (dataClient.get('tel').dirty || dataClient.get('tel').touched)}"
+                mask="(00)00000-0000" 
+                formControlName="tel"
+                class="text-input" 
+                placeholder="(00) 00000-0000">
+                <span class="txtError"
+                *ngIf=" dataClient.get('tel').invalid && (dataClient.get('tel').dirty || dataClient.get('tel').touched)">
+                Telefone inválido.
+                </span>
         </div>
     </div>
 
     <div class="buttons">
-        <button type="submit" class="btn">Enviar</button>
+        <button type="submit" class="btn" (click)="sendMessage()">Enviar</button>
     </div>
+
+    <!-- <div class="buttons">
+        <a href="https://{{isMobile() ? 'api.whatsapp.com' : 'web.whatsapp.com'}}/send?phone=5511951460560&text=Nome: {{clientName}}, Telefone: +{{clientTel}} +, Número(s) escolhido(s) {{numbersChoose}}"
+        target="_blank" class="linkWhatsapp"> enviar </a>
+    </div> -->
+
+
+
+</form>
 </app-lightbox>
 
 <app-lightbox *ngIf="modalVoid" (closeModal)="modalVoid = false" class="infos__lightbox">

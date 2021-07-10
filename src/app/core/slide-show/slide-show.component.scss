@@ -1,0 +1,21 @@
+.slideshow {
+    overflow: hidden;
+    .close {
+        position: absolute;
+        right: 20px;
+        z-index: 99;
+        font-size: 50px;
+        color: #000;
+        font-weight: bold;
+    }
+}
+
+::ng-deep {
+    .slick-slide img {
+        height: 80vh;
+    }
+    .slick-slide {
+        display: flex!important;
+        justify-content: center;
+    }
+} 

@@ -24,6 +24,10 @@ import { RegisterLoginComponent } from './dashbord/register-login/register-login
 import { DataClientComponent } from './dashbord/data-client/data-client.component';
 import {AuthGuard} from './shared/guards/auth-guard';
 import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SlideShowComponent } from './core/slide-show/slide-show.component';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
     CustomersListComponent,
     CustomersNewComponent,
     RegisterLoginComponent,
-    DataClientComponent
+    DataClientComponent,
+    SlideShowComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,8 @@ import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
     NgwWowModule,
     ReactiveFormsModule,
     FormsModule,
+    SlickCarouselModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     {

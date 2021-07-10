@@ -40,7 +40,7 @@
     justify-content: start;
     margin-top: 15px;
     margin-bottom: 40px;
-    height: 45vh;
+    height: 40vh;
     overflow: overlay;
     .item_reservado {
       width: 46px;
@@ -86,11 +86,17 @@
   p {
     margin: 5px 5px 5px 0;
     padding: 5px;
-    border: 1px solid #529442;
-    background-color: #80d56b;
+    background-color: $blue_dark;
     border-radius: 4px;
     display: inline-block;
-    color: #363636 !important;
+    color: #fff;
+    font-weight: bold;
+    button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      padding: 0;
+    }
   }
 }
 
@@ -221,4 +227,26 @@
       justify-content: center;
     }
   } 
+}
+
+.numberSort::-webkit-scrollbar {
+  width: 12px;
+}
+
+.numberSort::-webkit-scrollbar-track {
+  background-color: $blue_dark;
+}
+
+.numberSort::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+.txtError {
+  color: red;
+  margin: 1px 0 0 0;
+  font-size: 11px;
+}
+
+.error {
+  border: 1px solid red;
 }

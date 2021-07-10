@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import {map, take} from 'rxjs/operators';
 import {Role} from '../../shared/enums/role.enum';
 import {ErrorWarning} from '../../shared/models/error-warning.model';
@@ -14,6 +14,8 @@ import {TokenStorageService} from '../../shared/services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   public loginData: FormGroup = new FormGroup({});
+
+  modalVoid: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,8 +43,8 @@ export class LoginComponent implements OnInit {
         take(1)
       ).subscribe(() => {
       this.router.navigateByUrl('/clientes');
-    }, (error: ErrorWarning) => {
-      console.log(error);
+    }, () => {
+      this.modalVoid = true;
     });
   }
 }

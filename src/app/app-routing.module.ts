@@ -8,6 +8,7 @@ import { RegisterLoginComponent } from './dashbord/register-login/register-login
 import { DataClientComponent } from './dashbord/data-client/data-client.component';
 import {AuthDashGuard} from './shared/guards/auth-dash-guard';
 import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
+import { SlideShowComponent } from './core/slide-show/slide-show.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'numeros-contratados/:id',
     component: DataClientComponent
+  },
+  {
+    path: 'fotos',
+    component: SlideShowComponent
   },
 ];
 
