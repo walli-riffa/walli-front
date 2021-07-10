@@ -38,9 +38,15 @@
 
             </p>
     </div>
+    <div class="valueTotal">
+        <label class="label">Valor total: 
+        </label>
+        <span>{{ listItem.length * 25 | currency:'BRL':true}}
+        </span>
+    </div>
     <form action="" [formGroup]="dataClient">
     <div class="d-flex align-center">
-        <label class="label">Nome:</label>
+        <label class="label">Nome Completo:</label>
         <div class="size">
             <input type="text" 
                 [ngClass]="{'error': dataClient.get('name').invalid && (dataClient.get('name').dirty || dataClient.get('name').touched)}"
@@ -56,7 +62,7 @@
     </div>
 
     <div class="d-flex align-center">
-        <label class="label">Telefone:</label>
+        <label class="label">Numero Celuar:</label>
         <div class="size">
             <input type="tel" 
                 [ngClass]="{'error': dataClient.get('tel').invalid && (dataClient.get('tel').dirty || dataClient.get('tel').touched)}"
