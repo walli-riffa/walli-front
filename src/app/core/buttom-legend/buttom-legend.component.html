@@ -2,8 +2,8 @@
     <div class="container">
         <div class="legend">
             <button type="submit" class="btn available wow bounceInLeft" (click)="filter(true)">Disponível ({{numbersAvailable.length}})</button>
-            <button type="submit" class="btn reserved wow fadeInDownBig" (click)="filter(false)">Indisponível ({{numbersReserved.length}})</button>
-            <button type="submit" class="btn selected wow fadeInRightBig" (click)="selected()">Selecionado ({{listItem.length}})</button>
+            <button type="submit" class="btn reserved wow fadeInRightBig" (click)="filter(false)">Indisponível ({{numbersReserved.length}})</button>
+            <button type="submit" class="btn selected wow fadeInRightBig"  data-wow-delay="0.5s" (click)="selected()">Selecionado ({{listItem.length}})</button>
         </div>
 
         <div class="numberSort">

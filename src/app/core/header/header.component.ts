@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   slideIndex = 0;
 
-  topPosToStartShowing = 110;
+  topPosToStartShowing = 10;
   showButton: boolean;
   isLogged = false;
 

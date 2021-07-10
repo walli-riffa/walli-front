@@ -7,7 +7,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { MainComponent } from './core/main/main.component';
 import { BannerComponent } from './core/banner/banner.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ButtomLegendComponent } from './core/buttom-legend/buttom-legend.component';
 import { LightboxComponent } from './shared/lightbox/lightbox.component';
 import {LoadingScreenComponent} from './shared/components/loading-screen/loading-screen.component';
@@ -48,7 +47,6 @@ import {AuthVerifyLogin} from './shared/guards/auth-not-logged-guard';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    IvyCarouselModule,
     HttpClientModule,
     NgwWowModule,
     ReactiveFormsModule,

@@ -41,18 +41,10 @@ export class DataPaymentComponent implements OnInit {
     }
   ];
 
-  modal: boolean;
-  listItem = [];
-
   constructor(private wowService: NgwWowService) {
     this.wowService.init();
-  }
+   }
 
   ngOnInit(): void {
   }
-
-  openModal(): void {
-    this.modal = true;
-  }
-
 }
