@@ -27,6 +27,7 @@
             font-family: $OpenSans;
             color: $white;
             font-weight: bold;
+            margin-bottom: 0;
         }
         .link {
             border: 1px solid #fff;
@@ -64,6 +65,17 @@ a {
     }
 }
 
+.link_insta {
+    display: flex;
+    align-items: center;
+    i {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-right: 15px;
+        font-weight: bold;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .header {
         .logo {
@@ -83,6 +95,9 @@ a {
                 font-size: 1.5rem;
             }
         }
+    }
+    .link_insta {
+        font-size: 1.5rem;
     }
     #menuFixo {
         padding: 5px 0;

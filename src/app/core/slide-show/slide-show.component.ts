@@ -12,7 +12,7 @@ export class SlideShowComponent implements OnInit {
     {img: '/assets/moto/foto-2.png'},
     {img: '/assets/moto/foto-3.png'},
     {img: '/assets/moto/foto-4.png'},
-    // {img: '/assets/moto/foto-5.jpg'}
+    {img: '/assets/moto/foto-5.jpg'}
   ];
   slideConfig = {
     slidesToShow: 1,
