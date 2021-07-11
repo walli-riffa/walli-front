@@ -197,27 +197,39 @@
             height: 50vh;
             background: rgba(53,59,137, 0.9)
         }
+        .descripton {
+            h2 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                font-weight: normal;
+                letter-spacing: inherit;
+            }
+        }
+        .titleMobile {
+            justify-content: right;
+        }
         h2 {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
         }
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
         .value {
             p {
-                font-size: 1.5rem; 
+                font-size: 1.2rem;
             }
         }
         .image {
             img {
-                bottom: 14%;
-                right: -8px;
-                width: 35%;
+                bottom: 44%;
+                right: -12px;
+                width: 36%;
             }
         }
     }
     .slideshow-container {
-        top: 70px;
+        top: 60px;
         .mySlides {
             width: 50%;
             .title {
