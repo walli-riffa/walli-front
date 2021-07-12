@@ -25,6 +25,14 @@
         display: none;
     }
     // .description {
+        .descripton {
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                font-weight: normal;
+                letter-spacing: inherit;
+            }
+        }
         .title {
             display: flex;
             width: 100%;
@@ -194,7 +202,7 @@
             }
         }
         .filter {
-            height: 50vh;
+            height: 52vh;
             background: rgba(53,59,137, 0.9)
         }
         .descripton {
