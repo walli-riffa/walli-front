@@ -1,5 +1,14 @@
 <section class="draw">
     <div class="container">
+        <div class="description_payment"  id="paymentData">
+            <p class="wow fadeInRightBig">Para reservar seu(s) numero(s) clique no numero(s) escolhido(s), veja abaixo dos numeros as opções de pagamento, faça a transfêrencia TED, DOC ou PIX
+                e clique no botão Reservar números</p>
+            <!-- <div class="buttons wow fadeInUp">
+                <button class="btn" (click)="popUpOn()">Entrar em contato e enviar o comprovante</button>
+            </div> -->
+        </div>
+    </div>
+    <div class="container">
         <div class="legend">
             <button type="submit" class="btn available wow bounceInLeft" (click)="filter(true)">Disponível ({{numbersAvailable.length}})</button>
             <button type="submit" class="btn reserved wow fadeInRightBig" (click)="filter(false)">Indisponível ({{numbersReserved.length}})</button>
@@ -12,17 +21,6 @@
                 class="rifa_number item_reservado tooltip_flip">
                 {{numberSelect.number}}
             </button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="description_payment"  id="paymentData">
-            <p class="wow fadeInRightBig">Para reservar seu(s) numero(s) clique no numero(s) escolhido(s), faça a transfêrencia TED, DOC ou PIX,
-                depois clique no botão abaixo para entrar em contato e enviar o comprovante para Thalison Oliveira da
-                Silva.</p>
-            <div class="buttons wow fadeInUp">
-                <button class="btn" (click)="popUpOn()">Entrar em contato e enviar o comprovante</button>
-            </div>
         </div>
     </div>
 </section>
@@ -94,3 +92,8 @@
 <app-lightbox *ngIf="modalVoid" (closeModal)="modalVoid = false" class="infos__lightbox">
  <p class="noting">Selecione um numero</p>
 </app-lightbox>
+
+
+<app-menu-bottom *ngIf="listItem.length > 0" (finalizarCompra)="popUpOn()">
+
+</app-menu-bottom>
